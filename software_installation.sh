@@ -20,3 +20,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
 
 sed -i '/^ZSH_THEME/s/robbyrussell/afowler/' ~/.zshrc
+
+# Some utilityes from github
+git clone https://github.com/rupa/z.git
