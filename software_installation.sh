@@ -5,7 +5,24 @@ if command -v "apt" &> /dev/null; then
     package_util="apt-get"
 fi
 
-"$package_util" install -y zsh git screen cargo
+DISTRO_NAME=$(grep PRETTY_NAME /etc/os-release | cut -d '"' -f 2)
+
+PACKAGES_TO_INSTALL=(zsh git jq)
+IS_NAVI_AVAILABLE=false
+
+case "$DISTRO_NAME" in
+    "Rocky Linux 8"*) ;;
+    "Ubuntu 18.04"*) PACKAGES_TO_INSTALL+=screen ; IS_NAVI_AVAILABLE=true ;;
+    "Ubuntu 20.04"*) PACKAGES_TO_INSTALL+=screen ; IS_NAVI_AVAILABLE=true ;;
+    "CentOS Linux 7"*) PACKAGES_TO_INSTALL+=screen ; IS_NAVI_AVAILABLE=true ;;
+    *) echo "Distro is not supported" ; exit 1 ;;
+esac
+
+if "$IS_NAVI_AVAILABLE" ; then
+    PACKAGES_TO_INSTALL+=cargo
+fi
+
+# "$package_util" install -y "${PACKAGES_TO_INSTALL[@]}"
 
 # oh-my-zsh installation
 chsh -s $(which zsh)
@@ -26,10 +43,14 @@ sed -i '/^ZSH_THEME/s/robbyrussell/afowler/' ~/.zshrc
 git clone https://github.com/rupa/z.git
 sed -i -e '$a. ~/z/z.sh' ~/.zshrc
 
-git clone --depth 1 https://github.com/junegunn/fzf.git
-~/fzf/install
-source .zshrc
+if "$IS_NAVI_AVAILABLE" ; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git
+    ~/fzf/install
+    source .zshrc
 
-cargo install --locked navi
-navi repo add https://github.com/SandakovMM/my_navi_cheats
-navi repo add https://git.plesk.ru/scm/~msandakov/plesk-cheats-for-navi.git
+    cargo install --locked navi
+    navi repo add https://github.com/SandakovMM/my_navi_cheats
+    navi repo add https://git.plesk.ru/scm/~msandakov/plesk-cheats-for-navi.git
+fi
+
+source .zshrc
