@@ -49,6 +49,7 @@ if "$IS_NAVI_AVAILABLE" ; then
     sed -i -e '$a [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh' ~/.zshrc
     source .zshrc
 
+    # require 2021 version of rust, so could not be installed on some distros (Rocky linux 8 for example)
     cargo install --locked navi
     navi repo add https://github.com/SandakovMM/my_navi_cheats
     navi repo add https://git.plesk.ru/scm/~msandakov/plesk-cheats-for-navi.git
