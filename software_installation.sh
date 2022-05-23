@@ -22,7 +22,7 @@ if "$IS_NAVI_AVAILABLE" ; then
     PACKAGES_TO_INSTALL+=cargo
 fi
 
-# "$package_util" install -y "${PACKAGES_TO_INSTALL[@]}"
+"$package_util" install -y "${PACKAGES_TO_INSTALL[@]}"
 
 # oh-my-zsh installation
 chsh -s $(which zsh)
