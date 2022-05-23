@@ -12,14 +12,14 @@ IS_NAVI_AVAILABLE=false
 
 case "$DISTRO_NAME" in
     "Rocky Linux 8"*) ;;
-    "Ubuntu 18.04"*) PACKAGES_TO_INSTALL+=screen ; IS_NAVI_AVAILABLE=true ;;
-    "Ubuntu 20.04"*) PACKAGES_TO_INSTALL+=screen ; IS_NAVI_AVAILABLE=true ;;
-    "CentOS Linux 7"*) PACKAGES_TO_INSTALL+=screen ; IS_NAVI_AVAILABLE=true ;;
+    "Ubuntu 18.04"*) PACKAGES_TO_INSTALL+=(screen) ; IS_NAVI_AVAILABLE=true ;;
+    "Ubuntu 20.04"*) PACKAGES_TO_INSTALL+=(screen) ; IS_NAVI_AVAILABLE=true ;;
+    "CentOS Linux 7"*) PACKAGES_TO_INSTALL+=(screen) ; IS_NAVI_AVAILABLE=true ;;
     *) echo "Distro is not supported" ; exit 1 ;;
 esac
 
 if "$IS_NAVI_AVAILABLE" ; then
-    PACKAGES_TO_INSTALL+=cargo
+    PACKAGES_TO_INSTALL+=(cargo)
 fi
 
 "$package_util" install -y "${PACKAGES_TO_INSTALL[@]}"
