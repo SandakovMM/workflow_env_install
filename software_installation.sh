@@ -45,7 +45,7 @@ sed -i -e '$a. ~/z/z.sh' ~/.zshrc
 
 if "$IS_NAVI_AVAILABLE" ; then
     git clone --depth 1 https://github.com/junegunn/fzf.git
-    ~/fzf/install --completion --key_bindings --no-update-rc
+    ~/fzf/install --completion --key-bindings --no-update-rc
     sed -i -e '$a [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh' ~/.zshrc
     source .zshrc
 
