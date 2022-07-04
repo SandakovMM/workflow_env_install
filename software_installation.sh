@@ -11,7 +11,8 @@ PACKAGES_TO_INSTALL=(zsh git jq)
 IS_NAVI_AVAILABLE=false
 
 case "$DISTRO_NAME" in
-    "Rocky Linux 8"*) ;;
+    "Rocky Linux 8"*) IS_NAVI_AVAILABLE=true ;;
+    "AlmaLinux 8"*) IS_NAVI_AVAILABLE=true ;;
     "Ubuntu 18.04"*) PACKAGES_TO_INSTALL+=(screen) ; IS_NAVI_AVAILABLE=true ;;
     "Ubuntu 20.04"*) PACKAGES_TO_INSTALL+=(screen) ; IS_NAVI_AVAILABLE=true ;;
     "CentOS Linux 7"*) PACKAGES_TO_INSTALL+=(screen) ; IS_NAVI_AVAILABLE=true ;;
