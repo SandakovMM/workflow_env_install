@@ -15,6 +15,7 @@ case "$DISTRO_NAME" in
     "AlmaLinux 8"*) IS_NAVI_AVAILABLE=true ;;
     "Ubuntu 18.04"*) PACKAGES_TO_INSTALL+=(screen gdbserver) ; IS_NAVI_AVAILABLE=true ;;
     "Ubuntu 20.04"*) PACKAGES_TO_INSTALL+=(screen gdbserver) ; IS_NAVI_AVAILABLE=true ;;
+    "Ubuntu 22.04"*) PACKAGES_TO_INSTALL+=(screen gdbserver) ; IS_NAVI_AVAILABLE=true ;;
     "CentOS Linux 7"*) PACKAGES_TO_INSTALL+=(screen gdbserver) ; IS_NAVI_AVAILABLE=true ;;
     *) echo "Distro is not supported" ; exit 1 ;;
 esac
