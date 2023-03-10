@@ -44,3 +44,7 @@ if "$IS_NAVI_AVAILABLE" ; then
     fish -c "navi repo add https://github.com/SandakovMM/my_navi_cheats"
     fish -c "navi repo add https://git.plesk.ru/scm/~msandakov/plesk-cheats-for-navi.git"
 fi
+
+if [ -n "$SSH_PUBLIC_KEY" ]; then
+    echo "$SSH_PUBLIC_KEY" >> ~/.ssh/authorized_keys
+fi
