@@ -7,7 +7,7 @@ fi
 
 DISTRO_NAME=$(grep PRETTY_NAME /etc/os-release | cut -d '"' -f 2)
 
-PACKAGES_TO_INSTALL=(fish git jq gdb python3-pip)
+PACKAGES_TO_INSTALL=(vim fish git jq gdb python3-pip)
 IS_NAVI_AVAILABLE=false
 
 case "$DISTRO_NAME" in
