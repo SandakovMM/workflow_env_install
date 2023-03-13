@@ -25,6 +25,7 @@ if "$IS_NAVI_AVAILABLE" ; then
     PACKAGES_TO_INSTALL+=(cargo)
 fi
 
+"$package_util" update -y
 "$package_util" install -y "${PACKAGES_TO_INSTALL[@]}"
 
 # Configure fish and plugins
