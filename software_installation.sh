@@ -1,9 +1,10 @@
 #!/bin/bash
 
-if "$1" == "--remote" || "$1" == "-r" ; then
+echo "$1"
+if [ "$1" == "--remote" -o "$1" == "-r" ] ; then
     echo "Upload to remoate host and update"
-    scp -i ~/.ssh/id_testers $(readlink -m "$0") root@$1:/root/software_installation.sh
-    ssh -i ~/.ssh/id_testers root@$1 "bash /root/software_installation.sh"
+    scp -i ~/.ssh/id_testers $(readlink -m "$0") root@$2:/root/software_installation.sh
+    ssh -i ~/.ssh/id_testers root@$2 "bash /root/software_installation.sh"
     exit 0
 fi
 
