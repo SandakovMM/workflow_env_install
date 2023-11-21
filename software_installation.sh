@@ -21,6 +21,7 @@ IS_NAVI_AVAILABLE=false
 case "$DISTRO_NAME" in
     "Rocky Linux 8"*) PACKAGES_TO_INSTALL+=(screen gdb-gdbserver) ; IS_NAVI_AVAILABLE=true ;;
     "AlmaLinux 8"*) PACKAGES_TO_INSTALL+=(screen gdb-gdbserver) ; IS_NAVI_AVAILABLE=true ;;
+    "AlmaLinux 9"*) PACKAGES_TO_INSTALL+=(screen gdb-gdbserver) ; IS_NAVI_AVAILABLE=true ;;
     "Ubuntu 18.04"*) PACKAGES_TO_INSTALL+=(screen gdbserver) ; IS_NAVI_AVAILABLE=true ;;
     "Ubuntu 20.04"*) PACKAGES_TO_INSTALL+=(screen gdbserver) ; IS_NAVI_AVAILABLE=true ;;
     "Ubuntu 22.04"*) PACKAGES_TO_INSTALL+=(screen gdbserver) ; IS_NAVI_AVAILABLE=true ;;
